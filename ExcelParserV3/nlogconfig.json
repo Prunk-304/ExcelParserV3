@@ -1,0 +1,19 @@
+{
+    "NLog":{
+        "targets":{
+            "async": true,
+            "console":{
+                "type":"Console",
+                "layout":"${longdate} level=${level} message=${message}"
+            }
+        },
+            "rules":[
+                {
+                    "logger":"*",
+                    "minLevel":"Info",
+                    "writeTo":"console"
+                }
+            ]
+    },
+    "file_path": "D:\\Solutions\\Example.xlsx"
+}
