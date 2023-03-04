@@ -13,7 +13,7 @@
                     "minLevel":"Info",
                     "writeTo":"console"
                 }
-            ]
-    },
-    "file_path": "D:\\Solutions\\Example.xlsx"
+            ],
+        "file_path": "D:\\Solutions\\Example.xlsx"
+    }
 }
