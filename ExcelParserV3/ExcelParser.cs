@@ -6,22 +6,18 @@ namespace ExcelParserV3;
 public class ExcelParser
 {
     private readonly ColumsListBase _excelParse;
-    private readonly NLogConfigReader _configReader;
     private readonly ILogger _logger;
-    
-    public ExcelParser(ColumsListBase excelParse, NLogConfigReader configReader,LoggerFactory loggerFactory)
+
+    public ExcelParser(ColumsListBase excelParse, LoggerFactory loggerFactory)
     {
         _excelParse = excelParse;
-        _configReader = configReader;
         _logger = loggerFactory.CreateLogger();
     }
 
-    public void ParseExcelFile()
+    public void ParseExcelFile(string filePath)
     {
         try
-        {
-            var filePath = _configReader.GetFilePath();
-            string check;
+        {   string check;
             byte[] bin = File.ReadAllBytes(filePath);
             using (MemoryStream stream = new MemoryStream(bin))
             using (ExcelPackage excelPackage = new ExcelPackage(stream))

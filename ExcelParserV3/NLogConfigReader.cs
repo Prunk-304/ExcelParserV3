@@ -13,21 +13,13 @@ namespace ExcelParserV3
         {
             _filename = filename;
         }
-        public string GetFilePath()
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath("D:/Solutions/ExcelParserV3/ExcelParserV3/")
-                .AddJsonFile(_filename, optional: false, reloadOnChange: true);
-            var configuration = builder.Build();
-            return configuration.GetSection("file_path").Value;
-        }
         public LoggingConfiguration GetNLogConfiguration()
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath("D:/Solutions/ExcelParserV3/ExcelParserV3/")
-                .AddJsonFile(_filename, optional: false, reloadOnChange: true);
-            var configuration = builder.Build();
-            
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile(_filename, optional: false, reloadOnChange: true);
+                var configuration = builder.Build();
+
             try
             {
                 var nlogConfig = new NLogLoggingConfiguration(configuration.GetSection("NLog"));
