@@ -42,7 +42,6 @@ public class ExcelParser
                                 {
                                     break;
                                 }
-
                                 switch (j)
                                 {
                                     case 1:
@@ -83,6 +82,43 @@ public class ExcelParser
                                         break;
                                     case 12:
                                         _excelParse.forecastThreeYearBase.Add(worksheet.Cells[i, j].Value.ToString());
+                                        break;
+                                }
+                            }
+
+                            if (worksheet.Cells[i, j].Value == null && worksheet.Cells[i, 1].Value != null
+                                                                    && worksheet.Cells[i, 2].Value != null
+                                                                    && worksheet.Cells[i, 3].Value != null
+                                                                    && j<13)
+                            {
+                                switch (j)
+                                {
+                                    case 4:
+                                        _excelParse.reportBeforeLast.Add("x");
+                                        break;
+                                    case 5:
+                                        _excelParse.reportLast.Add("x");
+                                        break;
+                                    case 6:
+                                        _excelParse.evaluationIndicator.Add("x");
+                                        break;
+                                    case 7:
+                                        _excelParse.forecastOneYearConservative.Add("x");
+                                        break;
+                                    case 8:
+                                        _excelParse.forecastOneYearBase.Add("x");
+                                        break;
+                                    case 9:
+                                        _excelParse.forecastTwoYearConservative.Add("x");
+                                        break;
+                                    case 10:
+                                        _excelParse.forecastTwoYearBase.Add("x");
+                                        break;
+                                    case 11:
+                                        _excelParse.forecastThreeYearConservative.Add("x");
+                                        break;
+                                    case 12:
+                                        _excelParse.forecastThreeYearBase.Add("x");
                                         break;
                                 }
                             }
